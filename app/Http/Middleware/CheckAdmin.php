@@ -27,7 +27,7 @@ class CheckAdmin
         elseif (auth()->check()&& auth()->user()->is_admin==0)
          {
 
-           return redirect()->back()->with('alert', 'You must be admin to do it');
+           return redirect()->back()->with('alert', 'You must be admin to do it .');
 
 
         }else
