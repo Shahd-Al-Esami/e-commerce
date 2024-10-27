@@ -11,8 +11,8 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="h3">Users</h1>
-            <a href="{{ route('users.create') }}" class="btn btn-primary">Add New user</a>
-            <a href="{{ url('/') }}" class="btn btn-primary border-black mt-5">back</a>
+            {{-- <a href="{{ route('users.create') }}" class="btn btn-primary">Add New user</a> --}}
+            <a href="{{ url('/dashboard') }}" class="btn btn-primary border-black mt-5">back</a>
 
 
 

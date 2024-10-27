@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'address' => 'syria',
             'phone' => '0987456321',
             'password' => Hash::make('11111111'),
-            'is_admin'=>1
+            'role'=>'admin'
         ]);
 
         User::create([
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             'address' => 'syria',
             'phone' => '0987456355',
             'password' => Hash::make('22222222'),
-            'is_admin'=>0
+            'role'=>'customer'
         ]);
     }
 }

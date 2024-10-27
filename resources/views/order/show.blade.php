@@ -11,7 +11,7 @@
 <body>
 
 
-<a class="btn btn-warning btn-sm m-5" href="{{ route('orders.index') }}" >go back</a>
+<a class="btn btn-warning btn-sm m-5" href="{{ url('/userOrders') }}" >go back</a>
 
 
 <div class="card col-4 m-2 shadow-sm" style="width: 18rem;"> <!-- Added shadow for depth -->

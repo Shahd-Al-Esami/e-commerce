@@ -10,7 +10,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Sales Report</h1>
-        <a href="{{ url('/welcome') }}" class="btn btn-primary border-black mt-5">back</a>
+        <a href="{{ url('/dashboard') }}" class="btn btn-primary border-black mt-5">back</a>
 
         <table class="table table-bordered table-striped mt-4">
             <thead class="thead-dark">

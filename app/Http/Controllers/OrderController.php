@@ -14,11 +14,6 @@ class OrderController extends Controller
 
 
 
-
-
-    public function order($id){
-
-    }
     public function index()
   {  $products=Product::withTrashed()->get();
 
@@ -72,7 +67,7 @@ class OrderController extends Controller
     $product_id->save();
 
 
-    return redirect()->route('orders.index');
+    return redirect()->route('userOrders');
 
     }
 
@@ -115,7 +110,7 @@ class OrderController extends Controller
             session()->flash('alert', 'Sorry, you can\'t order this amount; not enough stock.');
             Log::info('Redirecting due to insufficient stock. Alert set: ' . session('alert'));
 
-            return redirect()->route('products.index'); 
+            return redirect()->route('products.index');
         }
 
         // Update the order with the new quantity and total
@@ -132,7 +127,9 @@ class OrderController extends Controller
         $product->save();
 
         session()->flash('success', 'Order updated successfully.');
-        return redirect()->route('orders.index');
+        // return redirect()->route('orders.index');
+    return redirect()->route('userOrders');
+
     }
 
     /**
@@ -141,7 +138,7 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         $order->delete();
-     return redirect()->route('orders.index');
+     return redirect()->route('userOrders');
 
     }
     public function pay(Order $order){
@@ -149,7 +146,7 @@ class OrderController extends Controller
      $order->status='completed';
      $order->save();
 
-     return redirect()->route('orders.index')->with('status', 'Order status is completed!');
+     return redirect()->route('userOrders')->with('status', 'Order status is completed!');
  }
     public function getSales(){
         if($sales = Order::where('status', 'completed')->get() )
@@ -162,19 +159,20 @@ class OrderController extends Controller
 
  }
 
-//  public function userOrders()
-//  {
-//      if (Auth::check()) {
-//          $user = Auth::user();
-//          $orders = $user->orders;
-//          Log::info('User orders accessed', ['user_id' => $user->id, 'orders' => $orders]);
+ public function userOrders()
+ {
+     if (Auth::check()) {
+         $user = Auth::user();
+         $orders = $user->orders;
+         Log::info('User orders accessed', ['user_id' => $user->id, 'orders' => $orders]);
 
-//          return view('order.userOrders', compact('orders'));
-//      }else{
+          return view('order.userOrders',compact('orders') );
+     }
+else{
 
-//      return redirect()->route('login');}
+     return redirect()->route('login');
 
 
-// }
+ }
 
-}
+}}

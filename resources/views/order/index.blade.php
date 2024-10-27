@@ -14,7 +14,7 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="h3">orders</h1>
-            <a href="{{ route('products.index') }}" class="btn btn-primary">Add New order</a>
+            {{-- <a href="{{ route('products.index') }}" class="btn btn-primary">Add New order</a> --}}
             <a href="{{route('dashboard') }}" class="btn btn-primary border-black mt-5"> To Dashboard</a>
     {{-- <a href="{{ route('orders.index') }}" class="btn btn-secondary mb-3">Go Back</a> --}}
 
@@ -55,14 +55,14 @@
                 <h6 class="card-subtitle mb-2 text-muted">status :{{ $order->status }}</h6>
                 <h6 class="card-subtitle mb-2 text-muted">paymentMethod: {{ $order->paymentMethod }}</h6>
                 <h6 class="card-subtitle mb-2 text-muted">total: {{ $order->total }} $</h6>
-                <a href="{{ route('orders.edit',$order->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                {{-- <a href="{{ route('orders.edit',$order->id) }}" class="btn btn-warning btn-sm">Edit</a> --}}
                 <a href="{{ route('orders.show',$order->id) }}" class="btn btn-warning btn-sm">Show</a>
 
-                <form action="{{ route('orders.pay',$order->id) }}" method="POST">
+                {{-- <form action="{{ route('orders.pay',$order->id) }}" method="POST">
                     @csrf
 
                     <button type="submit" class="btn btn-danger btn-sm">Pay</button> <!-- Changed button style -->
-                </form>
+                </form> --}}
 <br>
                 <form action="{{ route('orders.destroy',$order->id) }}" method="post">
                     @csrf
@@ -98,7 +98,7 @@
 
 
 
-       @if (session('status'))
+       {{-- @if (session('status'))
         <div class="alert alert-success" role="alert">
             {{ session('status') }}
         </div>
@@ -135,7 +135,7 @@
     <script>
         alert("{{ session('alert') }}");
     </script>
-@endif
+@endif --}}
 
 
     </body>

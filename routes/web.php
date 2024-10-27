@@ -28,7 +28,8 @@ Auth::routes();
 
 
 //product
-//for admin only
+
+
 Route::get('products/restore/{id}', [ProductController::class, 'restore'])->name('restore')->middleware(['CheckAdmin']);
 Route::delete('products/forceDelete/{id}', [ProductController::class, 'forceDelete'])->name('forceDelete')->middleware(['CheckAdmin']);
 Route::get('products/showDeletedItems', [ProductController::class, 'showDeletedItems'])->name('showDeletedItems')->middleware(['CheckAdmin']);
@@ -56,7 +57,7 @@ Route::resource('categories', CategoryController::class)->except('index')->middl
 
 Route::post('products/order/{id}', [OrderController::class, 'create'])->name('orders.create')->middleware(['auth']);
 Route::post('store/order/{id}', [OrderController::class, 'store'])->name('orders.store')->middleware(['auth']);
-Route::get('orders', [OrderController::class, 'index'])->name('orders.index')->middleware(['auth']);//checkadmin
+Route::get('orders', [OrderController::class, 'index'])->name('orders.index')->middleware(['CheckAdmin']);//checkadmin
 
 
 Route::post('orders/pay/{order}', [OrderController::class, 'pay'])->name('orders.pay')->middleware(['CheckUser']);
@@ -65,11 +66,9 @@ Route::get('orders/{order}/edit', [OrderController::class, 'edit'])->name('order
 Route::put('orders/{order}/update', [OrderController::class, 'update'])->name('orders.update')->middleware(['CheckUser']);
 Route::get('orders/{order}/show', [OrderController::class, 'show'])->name('orders.show')->middleware(['CheckUser']);
 
+Route::get('/userOrders', [OrderController::class, 'userOrders'])->name('userOrders');
 
-
+//sales
 Route::get('sales', [OrderController::class, 'getSales'])->name('sales')->middleware(['CheckAdmin']);
 
 
-// Route::get('/userOrders', [OrderController::class, 'userOrders'])
-//     ->name('userOrders')
-//     ->middleware(['CheckUser']);

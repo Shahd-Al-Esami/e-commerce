@@ -47,7 +47,7 @@
 <body>
 
 <div class="container">
-    <a class="btn btn-warning btn-sm m-5" href="{{ route('orders.index') }}" >go back</a>
+    <a class="btn btn-warning btn-sm m-5" href="{{  url('/userOrders') }}" >go back</a>
 
     <h1 class="text-center">Product Ordering</h1>
 

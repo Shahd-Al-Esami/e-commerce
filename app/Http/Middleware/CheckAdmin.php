@@ -24,7 +24,7 @@ class CheckAdmin
             return redirect()->route('login'); // Change 'login' to your login route name
         }
 
-        elseif (auth()->check()&& auth()->user()->is_admin==0)
+        elseif (auth()->check()&& auth()->user()->role !== 'admin')
          {
 
            return redirect()->back()->with('alert', 'You must be admin to do it .');

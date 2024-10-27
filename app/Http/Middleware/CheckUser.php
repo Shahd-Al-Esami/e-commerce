@@ -38,7 +38,7 @@ class CheckUser
 
 
 
-          if(auth()->check() && ( auth()->user()->is_admin || auth()->user()->id === $order->user_id)) {
+          if(auth()->check() && ( auth()->user()->role=='admin' || auth()->user()->id === $order->user_id)) {
               return $next($request);
           }else
 
