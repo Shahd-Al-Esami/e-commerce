@@ -24,13 +24,13 @@
                 categories:
                 @foreach($product->categories as $category)
 
-                <input class="form-check-input" type="checkbox" name="category_ids[]" value="{{ $category->id }}" {{ in_array($category->id, $product->categories->pluck('id')->toArray()) ? 'checked' : '' }}>
+                <input disabled class="form-check-input" type="checkbox" name="category_ids[]" value="{{ $category->id }}" {{ in_array($category->id, $product->categories->pluck('id')->toArray()) ? 'checked' : '' }}>
                 <label class="form-check-label">
                     {{ $category->name }}
                 </label>
                 @endforeach
                 <hr>
-            
+
             </div>
         </div>
     </div>
